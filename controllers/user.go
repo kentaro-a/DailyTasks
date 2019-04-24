@@ -81,3 +81,32 @@ func SignUpFunc(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 }
+
+// ProfileFunc will enable exist users to update their profile
+func ProfileFunc(w http.ResponseWriter, r *http.Request) {
+
+	view.ProfileTemplate.Execute(w, map[string]string{"key1": "val1", "key2": "val2"})
+	// if r.Method != "POST" {
+	// 	http.Redirect(w, r, "/", http.StatusBadRequest)
+	// 	return
+	// }
+	// r.ParseForm()
+	// username := r.Form.Get("username")
+	// password := r.Form.Get("password")
+	// email := r.Form.Get("email")
+	// if user.UserIsExist(username) {
+	// 	http.Error(w, "UserName has exist", http.StatusInternalServerError)
+	// } else {
+	// 	hashpwd, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
+	// 	if err != nil {
+	// 		http.Error(w, "unable to Generatepasswrod", http.StatusInternalServerError)
+	// 	}
+	// 	pwd := string(hashpwd)
+	// 	err = user.RegisterUser(username, pwd, email)
+	// 	if err != nil {
+	// 		http.Error(w, "Unable to sign user up", http.StatusInternalServerError)
+	// 	} else {
+	// 		http.Redirect(w, r, "/login/", 302)
+	// 	}
+	// }
+}

@@ -17,6 +17,7 @@ var (
 	SearchTemplate    *template.Template
 	templates         *template.Template
 	LoginTemplate     *template.Template
+	ProfileTemplate   *template.Template
 	Message           string
 	err               error
 )
@@ -53,4 +54,5 @@ func RenderTemplate(tpl string) {
 	SearchTemplate = templates.Lookup("search.html")
 	CompletedTemplate = templates.Lookup("completed.html")
 	LoginTemplate = templates.Lookup("login.html")
+	ProfileTemplate = templates.Lookup("profile.html")
 }

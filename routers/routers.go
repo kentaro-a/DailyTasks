@@ -2,10 +2,9 @@
 package routers
 
 import (
-	"net/http"
-
 	. "github.com/taigacute/DailyTasks/controllers"
 	"github.com/taigacute/DailyTasks/middleware"
+	"net/http"
 )
 
 //InitRouter bind url with handler
@@ -32,5 +31,6 @@ func InitRouter() {
 	http.HandleFunc("/trash/", middleware.RequiresLogin(TrashTaskFunc))
 	http.HandleFunc("/edit/", middleware.RequiresLogin(EditTaskFunc))
 	http.HandleFunc("/search/", middleware.RequiresLogin(SearchTaskFunc))
+	http.HandleFunc("/profile/", middleware.RequiresLogin(ProfileFunc))
 	http.Handle("/static/", http.FileServer(http.Dir("public")))
 }

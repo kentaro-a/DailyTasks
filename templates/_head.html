@@ -19,6 +19,7 @@
     <link href="/static/css/sidebar.css" rel="stylesheet">
     <link href="/static/css/sidebar-bootstrap.css" rel="stylesheet">
     <link href="/static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/css/head.css" rel="stylesheet">
 
     <!-- Include Modernizr in the head, before any other Javascript -->
     <!--<script src="/static/js/modernizr-2.6.2.min.js"></script>-->
@@ -48,16 +49,19 @@
             <div class="navbar-header">
                 <span id="icons">
                     <button  data-original-title="Search" data-placement="bottom" data-toggle="tooltip" title=""  id="searchFormBtn" class="btn btn-action glyphicon glyphicon-search"  type="button"></button>
-                    {{if eq .Navigation "pending"}}                      
+                    {{if eq .Navigation "pending"}}
                     {{ else if eq .Navigation "completed"}}
                     {{ else if eq .Navigation "deleted"}}
-                    {{ else if eq .Navigation "edit"}} 
+                    {{ else if eq .Navigation "edit"}}
                     {{ else if eq .Navigation "search"}}
                     {{else }}
                    <a href="/del-category/{{.Navigation}}"> <button  data-original-title="Delete Category" data-placement="bottom" data-toggle="tooltip" title="" class="btn btn-action glyphicon glyphicon-trash"  type="button"></button></a>
                    <button  data-original-title="Edit Category" data-placement="bottom" data-toggle="tooltip" id="editCatFrmBtn" title="" class="btn btn-action glyphicon glyphicon-pencil"  type="button"></button>
                     {{end}}
                    <a href="/logout"> <button  data-original-title="Logout" data-placement="bottom" data-toggle="tooltip" title="Logout" class="btn btn-action glyphicon glyphicon-off"  type="button"></button></a>
+
+                   <a href="#"><img class="profile_icon" src="/static/icons/noimage.png"></a>
+
                 </span>
 
                 {{if .Search}} <a class="navbar-brand"> Results for: {{.Search}}</a> {{else}} {{ if eq .Navigation "pending"}}
@@ -78,6 +82,7 @@
                     <input type="text" name="query" placeholder="Search" >
                     <input type="submit" value="Submit" class="btn btn-default" />
                 </form>
+
             </div>
         </div>
     </nav>
@@ -115,7 +120,7 @@
                                 <!--<button title="New category" id="toggleCategoryForm" data-placement="left" data-toggle="tooltip" class="btn glyphicon glyphicon-plus" style="font-size:small; margin-left:120px;"></button>-->
                                 <span id="categoryForm">
                                  <form action="/add-category/" method="POST">
-                                 <span> 
+                                 <span>
 							         <input type="text" name="category" width="50px">
 							         <input type="submit" text="submit" class="btn btn-primary" value="Submit"/>
                                  </span>
